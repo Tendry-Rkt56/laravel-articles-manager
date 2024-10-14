@@ -14,3 +14,9 @@ html {
     left:50%;
     transform: translate(-50%, -50%);
 }
+
+.content {
+    position: absolute;
+    top:20%;
+    left:10%;
+}

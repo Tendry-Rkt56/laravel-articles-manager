@@ -2,6 +2,8 @@
 @section('title', 'Les articles')
 @section('content')
 
+    <h2 class="my-4">Les articles</h2>
+
     <table class="table table-striped">
         <thead>
             <tr>
@@ -18,9 +20,9 @@
                     <td>{{$article->id}}</td>
                     <td></td>
                     <td>{{$article->nom}}</td>
-                    <td>{{$article->price}}</td>
+                    <td class="fw-bolder">{{number_format($article->price, 0, ',', ' ')}} Ar</td>
                     <td>
-                        <div class="d-flex gap-1">
+                        <div class="d-flex gap-1 justify-content-end w-70">
                             <a href="{{route('articles.edit', $article)}}" class="btn btn-primary btn-sm">Modifier</a>
                             <form action="{{route('articles.delete', $article)}}" method="POST">
                                 @csrf
@@ -35,3 +37,4 @@
     </table>
 
 @endsection
+
