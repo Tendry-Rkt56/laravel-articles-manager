@@ -1,6 +1,6 @@
 @extends('base')
 @section('title', $article->nom)
-@section('content')
+@section('containers')
 
     @include('form.form')
 

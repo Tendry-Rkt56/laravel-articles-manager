@@ -30,5 +30,9 @@
         @yield('content')
     </div>
 
+    <div class="container containers">
+        @yield('containers')
+    </div>
+
 </body>
 </html>

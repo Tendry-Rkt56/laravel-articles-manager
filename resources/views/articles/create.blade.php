@@ -1,6 +1,6 @@
 @extends('base')
 @section('title', 'Création')
-@section('content')
+@section('containers')
 
     @include('form.form')
 
