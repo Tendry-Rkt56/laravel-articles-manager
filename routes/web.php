@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,5 @@ Route::prefix('/articles')->name('articles.')->controller(ArticleController::cla
     Route::put('/edit/{article}', 'update')->name('update');
     Route::delete('/{article}', 'delete')->name('delete');
 });
+
+Route::resource('category', CategoryController::class);

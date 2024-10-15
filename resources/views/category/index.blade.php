@@ -1,10 +1,10 @@
 @extends('base')
-@section('title', 'Les articles')
+@section('title', 'Les catégories')
 @section('content')
 
     <div class="d-flex align-items-center justify-content-between gap-1">
-        <h2 class="my-4">Les articles</h2>
-        <a href="{{route('articles.create')}}" class="btn btn-secondary btn-sm">Ajouter un nouvel article</a>
+        <h2 class="my-4">Les catégories</h2>
+        <a href="{{route('category.create')}}" class="btn btn-secondary btn-sm">Ajouter une nouvelle catégorie</a>
     </div>
 
     <form class="gap-2 d-flex align-items-center justify-content-start flex-row" style="width:70%">
@@ -26,34 +26,20 @@
         <table class="my-4 table table-striped">
             <thead>
                 <tr>
-                    <th></th>
-                    <th>Image</th>
+                    <th>N°</th>
                     <th>Nom</th>
-                    <th>Prix</th>
-                    <th>Catégorie associée</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($articles as $article)
+                @foreach ($categories as $category)
                     <tr>
-                        <td>{{$article->id}}</td>
-                        <td>
-                            @if ($article->image)
-                            <img class="image" src="{{$article->imageUrl()}}" alt="">
-                            @endif
-                        </td>
-                        <td>{{$article->nom}}</td>
-                        <td class="fw-bolder">{{number_format($article->price, 0, ',', ' ')}} Ar</td>
-                        <td>
-                            @if ($article->category_id)
-                                <span class="fw-bolder">{{$article->category->nom}}</span>
-                            @endif
-                        </td>
+                        <td>{{$category->id}}</td>
+                        <td>{{$category->nom}}</td>
                         <td>
                             <div class="d-flex gap-1 justify-content-end w-70">
-                                <a href="{{route('articles.edit', $article)}}" class="btn btn-primary btn-sm">Modifier</a>
-                                <form action="{{route('articles.delete', $article)}}" method="POST">
+                                <a href="{{route('category.edit', $category)}}" class="btn btn-primary btn-sm">Modifier</a>
+                                <form action="{{route('category.destroy', $category)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <input type="submit" class="btn btn-danger btn-sm" name="" value="Supprimer" id="">
@@ -65,7 +51,7 @@
             </tbody>
         </table>
     </div>
-    {{$articles->links()}}
+    {{$categories->links()}}
 
 @endsection
 

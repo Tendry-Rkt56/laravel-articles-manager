@@ -14,10 +14,16 @@ class Article extends Model
         'nom',
         'price',
         'image',
+        'category_id',
     ];
 
     public function imageUrl()
     {
         return Storage::disk('public')->url($this->image);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

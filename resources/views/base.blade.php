@@ -21,7 +21,7 @@
         <nav style='width:40%'>
             <ul>
                 <li class='nav-item'><a @class(['nav-link', 'active' => str_contains($route,'articles.')]) href="{{route('articles.index')}}">Les articles</a></li>
-                <li class='nav-item'><a @class(['nav-link', 'active' => str_contains($route,'categories.')]) href="">Les commentaires</a></li>
+                <li class='nav-item'><a @class(['nav-link', 'active' => str_contains($route,'category.')]) href="{{route('category.index')}}">Les catégories</a></li>
             </ul>
         </nav>
     </header>

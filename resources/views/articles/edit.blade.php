@@ -2,6 +2,6 @@
 @section('title', $article->nom)
 @section('containers')
 
-    @include('form.form')
+    @include('form.articles')
 
 @endsection
