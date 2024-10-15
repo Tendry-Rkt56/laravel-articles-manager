@@ -16,7 +16,7 @@
 
     <header>
         <div style='width:20%' class="entete">
-            <h2>Modifi<span>cation</span></h2>
+            <h2>CRUD</h2>
         </div>
         <nav style='width:40%'>
             <ul>

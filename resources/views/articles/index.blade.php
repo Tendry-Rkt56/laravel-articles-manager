@@ -7,6 +7,12 @@
         <a href="{{route('articles.create')}}" class="btn btn-secondary btn-sm">Ajouter un nouvel article</a>
     </div>
 
+    <form class="gap-2 d-flex align-items-center justify-content-start flex-row" style="width:70%">
+        <input type="text" value="{{$search}}" placeholder="Rechercher..." class="form-control" style="width:30%" name="search">
+        <input type="number" value="{{$paginator}}" class="form-control" style="width:30%" placeholder="Pagination..." name="paginator">
+        <input type="submit" class="btn btn-outline-primary btn-sm">
+    </form>
+
     <div class="container-fluid d-flex align-items-center justify-content-center flex-column">
         @if (session('success'))
             <div class="container-fluid my-1 alert alert-success d-flex align-items-center justify-content-center">
@@ -54,6 +60,7 @@
             </tbody>
         </table>
     </div>
+    {{$articles->links()}}
 
 @endsection
 

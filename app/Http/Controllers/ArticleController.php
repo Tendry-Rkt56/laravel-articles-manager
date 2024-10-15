@@ -4,16 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
 
-    public function index ()
+    /**
+     * Permet de lister tous les articles
+     */
+    public function index (Request $request)
     {
-        $articles = Article::all();
+        $articles = Article::where("nom", 'LIKE', '%'.$request->input('search').'%')->paginate($request->input('paginator') ?? 5);
         return view("articles.index", [
             'articles' => $articles,
+            'search' => $request->input('search') ?? '',
+            'paginator' => $request->input('paginator') ?? 5,
         ]);
     }
 
