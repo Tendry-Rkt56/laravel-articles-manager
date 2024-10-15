@@ -1,6 +1,7 @@
 <?php
 
 $type = $type ?? 'text';
+$placeholder = $placeholder ?? '';
 
 ?>
 

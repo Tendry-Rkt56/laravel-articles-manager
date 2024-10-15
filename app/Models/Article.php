@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Article extends Model
 {
@@ -14,4 +15,9 @@ class Article extends Model
         'price',
         'image',
     ];
+
+    public function imageUrl()
+    {
+        return Storage::disk('public')->url($this->image);
+    }
 }

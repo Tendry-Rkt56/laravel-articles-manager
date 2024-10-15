@@ -32,7 +32,11 @@
                 @foreach ($articles as $article)
                     <tr>
                         <td>{{$article->id}}</td>
-                        <td></td>
+                        <td>
+                            @if ($article->image)
+                            <img class="image" src="{{$article->imageUrl()}}" alt="">
+                            @endif
+                        </td>
                         <td>{{$article->nom}}</td>
                         <td class="fw-bolder">{{number_format($article->price, 0, ',', ' ')}} Ar</td>
                         <td>

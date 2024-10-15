@@ -24,7 +24,8 @@ class ArticleRequest extends FormRequest
     {
         return [
             "nom" => ['required', 'min:4', Rule::unique('articles')->ignore($this->route()->parameter('article'))],
-            "price" => ['required', 'numeric']
+            "price" => ['required', 'numeric'],
+            'image' => ['image', 'max:10000'],
         ];
     }
 }
