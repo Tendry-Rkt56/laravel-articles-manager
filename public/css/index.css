@@ -25,3 +25,27 @@ html {
     width:30px;
     height:30px;
 }
+
+.card-content {
+    text-decoration:none;
+    height:140px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: center;
+    width:250px;
+    border-radius:4px;
+}
+
+.card-content h2, h3 {
+    color:aliceblue;
+    font-size:30px;
+}
+
+.card-content.card1 {
+    background-color:rgb(167, 93, 236);
+}
+
+.card-content.card2 {
+    background-color:rgb(32, 153, 32);
+}

@@ -13,7 +13,7 @@
         <input type="submit" class="btn btn-outline-primary btn-sm">
     </form>
 
-    <div class="container-fluid d-flex align-items-center justify-content-center flex-column">
+    <div class="my-4 container-fluid d-flex align-items-center justify-content-center flex-column">
         @if (session('success'))
             <div class="container-fluid my-1 alert alert-success d-flex align-items-center justify-content-center">
                 {{session('success')}}
@@ -24,7 +24,7 @@
                 {{session('danger')}}
             </div>
         @endif
-        <table class="table table-striped">
+        <table class="my-4 table table-striped">
             <thead>
                 <tr>
                     <th></th>
