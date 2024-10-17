@@ -7,8 +7,8 @@
             <h3>{{$articles}}</h3>
             <h2>Les articles</h2>
         </a>
-        <a href="" class="card-content card2">
-            <h3>32</h3>
+        <a href="{{route('category.index')}}" class="card-content card2">
+            <h3>{{$categories}}</h3>
             <h2>Les catégories</h2>
         </a>
     </div>

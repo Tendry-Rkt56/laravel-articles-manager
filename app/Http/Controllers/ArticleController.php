@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -53,10 +54,10 @@ class ArticleController extends Controller
         return redirect()->route('articles.index')->with('success', 'Article mis à jour');
     }
 
-    private function arrangeData(Article $article, ArticleRequest $request)
+    private function arrangeData(Article $article, ArticleRequest $request): array
     {
         $data = $request->validated();
-        /** @var UploadedFile|null $image */
+        /** @var ?UploadedFile $image */
         $image = $request->validated('image');
         if ($image == null || $image->getError()) {
             return $data;
@@ -68,7 +69,7 @@ class ArticleController extends Controller
         return $data;
     }
 
-    public function delete (Article $article)
+    public function delete (Article $article): RedirectResponse
     {
         Storage::disk('public')->delete($article->image);
         $article->delete();

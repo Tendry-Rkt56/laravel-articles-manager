@@ -49,3 +49,9 @@ html {
 .card-content.card2 {
     background-color:rgb(32, 153, 32);
 }
+
+.form {
+    padding:30px 30px;
+    box-shadow:0 0 5px rgba(0, 0, 0, 0.5);
+    height:300px;
+}

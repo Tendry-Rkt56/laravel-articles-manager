@@ -18,12 +18,22 @@
         <div style='width:20%' class="entete">
             <h2>CRUD</h2>
         </div>
-        <nav style='width:40%'>
-            <ul>
-                <li class='nav-item'><a @class(['nav-link', 'active' => str_contains($route,'articles.')]) href="{{route('articles.index')}}">Les articles</a></li>
-                <li class='nav-item'><a @class(['nav-link', 'active' => str_contains($route,'category.')]) href="{{route('category.index')}}">Les catégories</a></li>
-            </ul>
-        </nav>
+        @auth
+            <nav class="d-flex align-items-center justify-content-center flex-row gap-3" style='width:40%'>
+                <ul>
+                    <li class='nav-item'><a @class(['nav-link', 'active' => str_contains($route,'articles.')]) href="{{route('articles.index')}}">Les articles</a></li>
+                    <li class='nav-item'><a @class(['nav-link', 'active' => str_contains($route,'category.')]) href="{{route('category.index')}}">Les catégories</a></li>
+                </ul>
+                <form action="{{route('auth.logout')}}" method="POST">
+                    @csrf
+                    @method("DELETE")
+                    <input type="submit" class="btn btn-sm btn-danger" value="Se déconnecter">
+                </form>
+            </nav>
+        @endauth
+        @guest
+            <a href="{{route('auth.loginView')}}" class="justify-self-end btn btn-primary">Se connecter</a>
+        @endguest
     </header>
 
     <div class="container content">
